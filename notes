@@ -40,6 +40,7 @@ User views
 - show.erb - view account
 
 Trip model 
+- Attributes: destination, date, budjet
 - belongs_to user
 
 TripController
