@@ -8,15 +8,13 @@ class UserController < ApplicationController
     erb :'users/login'
   end
 
-  # Render signup form
   get '/users/signup' do
       erb :'users/signup'
   end
   
-  # create user instances
   post '/users/signup' do    
       @user = User.create(username: params[:username], password: params[:password])
-      redirect "/users/#{@user.id}"
+      redirect "/users/#{@user.id}" #users/show
     end
     
   # dynamic route for show page
