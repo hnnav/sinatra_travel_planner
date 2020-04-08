@@ -7,7 +7,7 @@ class TripController < ApplicationController
   # CREATE
     # render form
   get '/trips/new' do
-    erb ':trips/new'
+    erb :'trips/new'
   end
   
   # create instaces
