@@ -5,12 +5,25 @@ require "./app/models/trip"
 class TripController < ApplicationController
 
   # CREATE
-    # render form
+  # render form
   get '/trips/new' do
-    erb :'trips/new'
+    if logged_in?
+      erb :'trips/new'
+    else
+      redirect "/users/login"
+    end
   end
-  
+
   # create instaces
+  post '/trips' do 
+    @trip = Trip.create(
+        destination: params[:destination], 
+        date: params[:date], 
+        budjet: params[:budjet]
+    )
+    current_user.trips << @trip
+    redirect "/trips/#{@trip.id}" #trips/show
+  end 
 
   # READ
   # show one trip
