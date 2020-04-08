@@ -12,8 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    # erb :welcome
-    "Hello this works"
+    erb :welcome
   end
 
   helpers do
