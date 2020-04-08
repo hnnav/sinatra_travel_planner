@@ -1,1 +1,11 @@
-Welcome, <%= @user.username %>
+Welcome, <%= @user.username %><br>
+<br>
+Planned trips(<%= @user.trips.count %>)<br>
+<br>
+<% @user.trips.each do |trips| %>
+    Trip <%= trips.id %><br>
+    Destination: <%= trips.destination %><br>
+    Date: <%= trips.date %><br>
+    Budjet: <%= trips.budjet %><br>
+    <br>
+<% end %>
