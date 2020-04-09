@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <div class="navbar">
+        <a href="/"> Home </a>&nbsp;
+
+        <a href="/trips/new"> Create new travel plans </a>&nbsp;
+
+        <% if logged_in? %>
+          <a href="/logout"> Logout </a>
+        <% end %>
+
+    </div>
     <div class="wrapper">
 
         <%= yield %>
