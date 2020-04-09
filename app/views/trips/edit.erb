@@ -1,0 +1,9 @@
+<h1> Edit your travel plans </h1>
+
+<form action="/trips/<%= @trip.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    Destination: <input type=text value="<%= @trip.destination %>" name="destination">
+    Date: <input type=date value="<%= @trip.date %>" name="date">
+    Budjet: <input type=text value="<%= @trip.budjet %>" name="budjet">
+    <input type=submit>
+<form>
