@@ -1,0 +1,9 @@
+<% @trips.each do |trip| %>
+
+    User: <%= trip.user.username %>
+    Trip: <%= trip.id %>
+    Destination: <%= trip.destination %>
+    Date: <%= trip.date %>
+    Budjet: <%= trip.budjet %>
+
+<% end %>

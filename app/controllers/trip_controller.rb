@@ -7,7 +7,7 @@ class TripController < ApplicationController
   # CREATE
   # render form
   get '/trips/new' do
-    if logged_in?
+    if logged_in? # when i sign up this is not triggered
       erb :'trips/new'
     else
       redirect "/users/login"
@@ -26,7 +26,12 @@ class TripController < ApplicationController
   end 
 
   # READ
-  # show one trip
+  # dynamic route: show one trip
+  get '/trips/:id' do 
+    @trip = Trip.find(params[:id])
+    erb :'/trips/show'
+  end 
+
 
 
   # show all trips
@@ -39,5 +44,10 @@ class TripController < ApplicationController
 
 
   # DELETE
-  # a button to show page?
+  # a button added to show page
+  delete '/trips/:id' do
+    @trip = Trip.find(params[:id])
+    @trip.delete
+    redirect '/trips/index'
+  end  
 end
