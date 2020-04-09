@@ -3,11 +3,11 @@ Welcome, <%= @user.username %><br>
 <br>
 Planned trips(<%= @user.trips.count %>)<br>
 <br>
-<% @user.trips.each do |trips| %>
-    Trip <%= trips.id %><br>
-    Destination: <%= trips.destination %><br>
-    Date: <%= trips.date %><br>
-    Budjet: <%= trips.budjet %><br>
+<% @user.trips.each do |trip| %>
+    <a href="/trips/<%= trip.id %>"> Trip <%= trip.id %><br> </a>
+    Destination: <%= trip.destination %><br>
+    Date: <%= trip.date %><br>
+    Budjet: <%= trip.budjet %><br>
     <br>
 <% end %>
 

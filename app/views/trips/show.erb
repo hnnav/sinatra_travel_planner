@@ -1,7 +1,7 @@
-Trip <%= @trip.id%><br> 
-Destination: <%= @trip.destination %><br>
-Date: <%= @trip.date%><br>
-Budjet: <%= @trip.budjet %>
+<%= @trip.id %><br> 
+<%= @trip.destination %><br>
+<%= @trip.date %><br>
+<%= @trip.budjet %>
 
 <form method="post" action="/trips/<%= @trip.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

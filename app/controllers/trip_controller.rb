@@ -60,9 +60,10 @@ class TripController < ApplicationController
 
   # DELETE
   # a button added to show page
+  # this is not redirecting / also instances persist
   delete '/trips/:id' do
-    @trip = Trip.find(params[:id])
-    @trip.delete
-    redirect '/trips/index'
+    @trip = Trip.delete(params[:id])
+    redirect "/users/#{@user.id}" # not redirecting
   end  
+
 end
