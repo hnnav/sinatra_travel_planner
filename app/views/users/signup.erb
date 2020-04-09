@@ -1,7 +1,16 @@
-<h1> Sign up: </h1>
+<div class="signup">
+
+<div class="flash_alert">
+  <% if flash[:alert] %>
+  <%= flash[:alert] %>
+  <% end %>
+</div>
+
+<h1> Create an account </h1>
 
 <form action='/users/signup' method='POST'>
   Username: <input type=text name='username'>
   Password: <input type=password name='password'>
   <input type=submit>
 </form>
+</div>
