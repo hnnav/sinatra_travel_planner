@@ -7,11 +7,22 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, 'secret'
+    register Sinatra::Flash
   end
 
   get "/" do
-    erb :welcome
+    if logged_in?
+      redirect "/users/#{session[:user_id]}"
+    else 
+      erb :welcome
+    end
   end
+
+  # add a menu?
+  # get '/menu' do 
+  #   @menu_items = MenuItem.all
+  #   erb :'/menu_items/show'
+  # end 
 
   helpers do
     def logged_in?
@@ -19,7 +30,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
-    end
+      @current_user ||= User.find(session[:user_id])
+    end 
   end
 end
