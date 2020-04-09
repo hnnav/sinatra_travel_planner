@@ -7,9 +7,10 @@ class TripController < ApplicationController
   # CREATE
   # render form
   get '/trips/new' do
-    if logged_in? # when i sign up this is not triggered
-      erb :'trips/new'
+    if logged_in? 
+      erb :'/trips/new'
     else
+      flash[:alert] = "Please login first before making travel plans!"
       redirect "/users/login"
     end
   end
@@ -34,15 +35,28 @@ class TripController < ApplicationController
 
   # show all trips
   # connection: trips/index.erb
-  get 'trips/index' do
+  get '/trips' do
     @trips = Trip.all
     erb :'/trips/index'
   end
   
   # UPDATE
-  # render update form (trips/eit.erb)
-  # update instance
+  # render update form (trips/edit.erb)
+  get '/trips/:id/edit' do 
+    @trip = Trip.find(params[:id])
+    erb :'/trips/edit'
+  end 
 
+  # update instance
+  post '/trips/:id' do 
+    @trip = Trip.find(params[:id])
+    @trip.update(
+      destination: params[:destination], 
+      date: params[:date], 
+      budjet: params[:budjet]
+    )
+    redirect "/trips/#{@trip.id}"
+  end 
 
   # DELETE
   # a button added to show page
