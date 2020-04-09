@@ -32,12 +32,13 @@ class TripController < ApplicationController
     erb :'/trips/show'
   end 
 
-
-
   # show all trips
   # connection: trips/index.erb
-
-
+  get 'trips/index' do
+    @trips = Trip.all
+    erb :'/trips/index'
+  end
+  
   # UPDATE
   # render update form (trips/eit.erb)
   # update instance

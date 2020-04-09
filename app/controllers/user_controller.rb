@@ -4,9 +4,23 @@ require "./app/models/trip"
 
 class UserController < ApplicationController
 
-  get '/users/login' do
-    erb :'users/login'
-  end
+  get '/users/login' do 
+    if logged_in?   
+       redirect "/users/#{current_user.id}"  
+    else
+       erb :'/users/login'
+    end 
+  end 
+
+  post '/users/login' do 
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+       session[:user_id] = @user.id 
+       redirect "/users/#{@user.id}"
+    else  
+       redirect "/users/login"
+    end 
+  end 
 
   get '/users/signup' do
       erb :'users/signup'
