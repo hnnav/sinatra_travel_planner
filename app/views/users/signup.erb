@@ -1,16 +1,21 @@
 <div class="signup">
 
-<div class="flash_alert">
-  <% if flash[:alert] %>
-  <%= flash[:alert] %>
-  <% end %>
-</div>
-
-<h1> Create an account </h1>
-
-<form action='/users/signup' method='POST'>
-  Username: <input type=text name='username'>
-  Password: <input type=password name='password'> # 2 fields here
-  <input type=submit>
-</form>
+  <div class="flash_alert">
+    <% if flash[:alert] %>
+    <%= flash[:alert] %>
+    <% end %>
+  </div>
+  
+  <h1> Create an account </h1>
+  
+  <form action='/users/signup' method='POST'>
+    <label> Username </label>
+      <input type=text name="username"><br>
+    <label> Password </label>
+      <input type=password name="password"><br>
+    <label> Enter password again </label>
+      <input type=password name="password_confirmation"><br>     
+    <br>
+    <input type=submit>
+  </form>
 </div>

@@ -63,5 +63,6 @@ trip views
 - index.erb - view all trips
 - edit.erb - dynamic route to update an trip
 
-
+TO DO:
+- Fix delete an instance 
     

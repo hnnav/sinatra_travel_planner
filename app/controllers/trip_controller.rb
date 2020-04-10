@@ -62,7 +62,7 @@ class TripController < ApplicationController
   # a button added to show page
   # this is not redirecting / also instances persist
   delete '/trips/:id' do
-    @trip = Trip.delete(params[:id])
+    Trip.destroy(params[:id])
     redirect "/users/#{@user.id}" # not redirecting
   end  
 
